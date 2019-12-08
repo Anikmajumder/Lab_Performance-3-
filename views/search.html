@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User List</title>
+</head>
+<style>
+.header{
+font-family:Lobster;
+	border-color:green;
+	border-width:10px;
+   
+	border-style:solid;
+	background-color:blue;
+	color:red;
+
+}
+#myTables td,
+ #myTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#myTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+<body>
+
+
+	<input type="text" name="" id="myInput" placeholder="name..." onkeyup="searchFun()">
+
+	<table id="myTable"  >
+		<tr class="header" >
+		     
+			<th>UserName</th>
+			<th>Email</th>
+			<th>Password</th>
+			
+			<th>Type</th> 
+			<th>Actions</th> 
+			<th>Actions</th> 
+		</tr>
+		
+		<tr>
+		    
+			<td>Name</td>
+			<td>Email</th>
+			<td>Password</td>
+			
+			<td>Type</td> 
+			<td>Actions</td> 
+			<td>Actions</td> 
+		</tr>
+		
+		<tr>
+		     
+			<td>PUserName</td>
+			<td>Email</td>
+			<td>Password</td>
+			
+			<td>Type</td> 
+			<td>Actions</td> 
+			<td>Actions</td> 
+		</tr>
+		
+	
+
+	
+	</table>
+	<script>
+	function searchFun(){
+		let filter = document.getElementById('myInput').value.toUpperCase();
+		
+		let myTable=document.getElementById('myTable');
+		
+		let tr=myTable.getElementsByTagName('tr');
+		
+		for(var i=0; i<tr.length;i++){
+			let td = tr[i].getElementsByTagName('td')[0];
+			
+			if(td){
+				let textvalue= td.textContent||td.innerHTML;
+				if(textvalue.toUpperCase().indexOf(filter)>-1){
+					tr[i].style.display="";
+					
+				}else{
+					
+					tr[i].style.display="none";
+				}
+				
+			}
+			
+			
+		}
+		
+		
+	}
+	</script>
+</body>
+</html>
